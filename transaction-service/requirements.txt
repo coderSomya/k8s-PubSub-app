@@ -1,3 +1,3 @@
 Flask
 kafka-python
-psychopg2-binary
+psycopg2-binary

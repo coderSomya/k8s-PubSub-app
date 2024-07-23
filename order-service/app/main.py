@@ -3,6 +3,10 @@ from producer import produce_order
 
 app = Flask(__name__)
 
+@app.route('/health', methods=['GET'])
+def home():
+    return jsonify({"msg": "ok"})
+
 @app.route('/order', methods=['POST'])
 def order():
     try:

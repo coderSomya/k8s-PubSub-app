@@ -1,8 +1,8 @@
-import psychopg2
+import psycopg2
 
 def store_transaction(order):
 
-    conn = psychopg2.connect(
+    conn = psycopg2.connect(
             dbname='orders_db',
             user='postgres',
             password='postgres',
@@ -11,16 +11,11 @@ def store_transaction(order):
     cur = conn.cursor()
 
     cur.execute(
-            'CREATE TABLE if not exists transactions (
-            email VARCHAR(255),
-            item VARCHAR(255),
-            qty INT,
-            price INT
-            );'
+            'CREATE TABLE if not exists transactions ( email VARCHAR(255), item VARCHAR(255), qty INT, price INT);'
             )
     cur.execute(
-            'INSERT INTO transactions (email, item, qty,price) 
-            VALUES (%s, %s, %s, %s)',
+            '''INSERT INTO transactions (email, item, qty,price) 
+            VALUES (%s, %s, %s, %s)''',
             (order['email'], order['item'], order['qty'], order['price'])
             )
 
