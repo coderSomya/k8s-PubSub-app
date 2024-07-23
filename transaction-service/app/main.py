@@ -10,10 +10,10 @@ def transaction():
     try:
        order = request.json
        store_transaction(order)
-       produce_analytics(order)
-       produce_notification(order)
+    #    produce_analytics(order)
+    #    produce_notification(order)
        return jsonify({'status': 'transaction stored'}), 200
-   except:
+    except:
        return jsonify({'status': 'something went wrong while transacting'}), 500
 
 

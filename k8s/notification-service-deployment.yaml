@@ -15,6 +15,7 @@ spec:
       containers:
       - name: notification-service
         image: notification-service:latest
+        imagePullPolicy: Never
         env:
         - name: SENDER_EMAIL
           valueFrom:
