@@ -11,13 +11,13 @@ minikube start
 
 ## Deploy kafka
 ```
-kubectl apply -f kubernetes/kafka/zookeeper-deployment.yaml
-kubectl apply -f kubernetes/kafka/kafka-deployment.yaml
+kubectl apply -f k8s/kafka/zookeeper-deployment.yaml
+kubectl apply -f k8s/kafka/kafka-deployment.yaml
 ```
 
 ## Deploy Postgres
 ```
-kubectl apply -f kubernetes/postgres/postgres-deployment.yaml
+kubectl apply -f k8s/postgres/postgres-deployment.yaml
 ```
 
 ## Build and Deploy Services
