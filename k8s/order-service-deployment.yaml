@@ -1,0 +1,30 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+       app: order-service
+    template:
+      metadata:
+       labels:
+         app: order-service
+       spec: 
+        containers:
+          - name: order-service
+            image: order-service:latest
+            ports:
+            - containerPort: 5000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  ports:
+  - port: 5000
+  selector:
+    app: order-service

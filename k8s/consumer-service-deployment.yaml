@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer-service
+  template:
+    metadata:
+      labels:
+        app: consumer-service
+    spec:
+      containers:
+      - name: consumer-service
+        image: consumer-service:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consumer-service
+spec:
+  ports:
+  - port: 5000
+  selector:
+    app: consumer-service
